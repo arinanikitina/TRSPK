@@ -8,41 +8,41 @@ namespace Man
         public string Name;
         public uint Age;
 
-        public Man(string name, uint age)
+        public Man(string name, uint age) //Положительный int
         {
-            if (string.IsNullOrEmpty(name)) throw new ArgumentNullException();
+            if (string.IsNullOrEmpty(name)) throw new ArgumentNullException(); //Исключение: поле не может быть пустым
             Name = name;
             Age = age;
         }
 
-        public virtual string Display() => (nameof(Man) + ' ' + Name + ' ' + Age);
+        public virtual string Display() => (nameof(Man) + ' ' + Name + ' ' + Age); /Пара virtual-override для использования метода в других классах с учетом изменений
     };
-    class Teenager : Man
+    class Teenager : Man // наследник класса Man 
     {
         public string School;
 
-        public Teenager(string name, uint age, string school) : base(name, age)
+        public Teenager(string name, uint age, string school) : base(name, age) // обращаемся к классу Man: передаем имя и возраст на установку в конструктор главного класса
         {
-            if (string.IsNullOrEmpty(name)) throw new ArgumentNullException();
-            if (age < 13 || age > 19) throw new ArgumentOutOfRangeException();
+            if (string.IsNullOrEmpty(name)) throw new ArgumentNullException(); //Исключение: поле не может быть пустым
+            if (age < 13 || age > 19) throw new ArgumentOutOfRangeException(); //Исключение: выход за диапазон допустимых значений
             School = school;
         }
 
-        public override string Display() => (nameof(Teenager) + ' ' + Name + ' ' + Age + " Place of study: " + School);
+        public override string Display() => (nameof(Teenager) + ' ' + Name + ' ' + Age + " Place of study: " + School); //Пара virtual-override для использования метода в других классах с учетом изменений
 
     };
     class Worker : Man
     {
         public string Workplace;
 
-        public Worker(string name, uint age, string workplace) : base(name, age)
+        public Worker(string name, uint age, string workplace) : base(name, age) // обращаемся к классу Man: передаем имя и возраст на установку в конструктор главного класса
         {
-            if (string.IsNullOrEmpty(name)) throw new ArgumentNullException();
-            if (age < 16 || age > 70) throw new ArgumentOutOfRangeException();
+            if (string.IsNullOrEmpty(name)) throw new ArgumentNullException();//Исключение: поле не может быть пустым
+            if (age < 16 || age > 70) throw new ArgumentOutOfRangeException();//Исключение: выход за диапазон допустимых значений
             Workplace = workplace;
         }
 
-        public override string Display() => (nameof(Worker) + ' ' + Name + ' ' + Age + " Place of work: " + Workplace);
+        public override string Display() => (nameof(Worker) + ' ' + Name + ' ' + Age + " Place of work: " + Workplace); //Пара virtual-override для использования метода в других классах с учетом изменений
     };
 
     class Program
