@@ -35,7 +35,7 @@ namespace Man
     {
         public string Workplace;
 
-        public Worker(string name, uint age, string workplace) : base(name, age) // обращаемся к классу Man: передаем имя и возраст на установку в конструктор главного класса
+        public Worker(string name, uint age, string workplace) : base(name, age) //обращаемся к классу Man: передаем имя и возраст на установку в конструктор главного класса
         {
             if (string.IsNullOrEmpty(name)) throw new ArgumentNullException();//Исключение: поле не может быть пустым
             if (age < 16 || age > 70) throw new ArgumentOutOfRangeException();//Исключение: выход за диапазон допустимых значений
